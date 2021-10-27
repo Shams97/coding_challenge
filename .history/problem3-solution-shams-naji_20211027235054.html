@@ -1,0 +1,80 @@
+
+<html>
+  <body>
+    <h2>Fridge Items</h2>
+    <table id="table">
+      <thead>
+        <td>
+          <b>Item</b>
+        </td>
+        <td>
+          <b>Count</b>
+        </td>
+        <td>
+          <b>Remove</b>
+        </td>
+      </thead>
+      <tbody  id="table_body">
+        <tr>
+          <td>Cucumber</td>
+          <td>3</td>
+          <td><button onClick="remove()">X</button></td>
+        </tr>
+        <tr>
+          <td>Lettuce</td>
+          <td>5</td>
+          <td><button onClick="remove()">X</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <input type="text" id="item_input" placeholder="add item">
+    <button onclick="add()">Add</button>
+  </body>
+  <script>
+
+function add(){
+  let fridge={'tomato': 1, 'onion': 1}
+let new_item = document.getElementById("item_input").value;
+ let table_ =document.getElementById("table").getElementsByTagName('tbody');
+let new_row;
+  
+Object.entries(fridge).map(item=>{
+  
+    
+      for(let i in item)
+      { 
+        
+     if(new_item==="")
+       return alert("You must add something to the fridge")
+     else new_row=table_.insertRow();
+
+// Insert a cell at the end of the row
+var newCell = new_row.insertCell();
+
+// Append a text node to the cell
+var newText = document.createTextNode(new_item);
+newCell.appendChild(newText);
+        }
+    })
+
+}
+
+
+function remove() {
+        let table_ = document.getElementById("table_body");
+        for (let i in table_.rows) {
+           let row = table_.rows[i]
+            return row.style.display= "none"; 
+       }
+    }
+  </script>
+  <style>
+    td {
+      padding-right: 50px;
+    }
+  </style>
+</html>
+
+
+

@@ -1,0 +1,74 @@
+
+<html>
+  <body>
+    <h2>Fridge Items</h2>
+    <table>
+      <thead>
+        <td>
+          <b>Item</b>
+        </td>
+        <td>
+          <b>Count</b>
+        </td>
+        <td>
+          <b>Remove</b>
+        </td>
+      </thead>
+      <tbody  id="table_body">
+        <tr>
+          <td>Cucumber</td>
+          <td>3</td>
+          <td><button onClick="remove()">X</button></td>
+        </tr>
+        <tr>
+          <td>Lettuce</td>
+          <td>5</td>
+          <td><button onClick="remove()">X</button></td>
+        </tr>
+        
+        <tr>
+          <td>Lettuce</td>
+          <td>5</td>
+          <td><button onClick="remove()">X</button></td>
+        </tr>
+        
+        <tr>
+          <td>Lettuce</td>
+          <td>5</td>
+          <td><button onClick="remove()">X</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <input type="text" id="item_input" placeholder="add item">
+    <button onclick="add()">Add</button>
+  </body>
+  <script>
+
+function add(){
+  let fridge={'tomato': 1, 'onion': 1}
+let new_item = document.getElementById("item_input").value
+// for(let i in fridge)
+// { 
+  fridge.push(new_item)
+  console.log("adding item",fridge)
+// }
+}
+
+function remove() {
+        let table_ = document.getElementById("table_body");
+        for (let i in table_.rows) {
+           let row = table_.rows[i]
+            return row.style.display= "none"; 
+       }
+    }
+  </script>
+  <style>
+    td {
+      padding-right: 50px;
+    }
+  </style>
+</html>
+
+
+
